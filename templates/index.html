@@ -69,18 +69,26 @@
 
 <script>
 
+    // we will call this much to clear the input and restore the default values
     function clear_data() {
+        // we need to get the list of inputs so we can loop and assign the default value 
         inputs = document.getElementsByTagName('input')
         for (var i = 0; i < inputs.length; i++) {
+            // assign the default value 
             inputs[i]['value'] = inputs[i].dataset.defaultValue
         }
+        // get the textarea and clear the data 
         txtArea = document.getElementsByTagName('textarea')[0]
         txtArea['value'] = ''
     }
+
+    // we will use this function to call the api and get the results 
     async function print_graph() {
         inputs = document.getElementsByTagName('input')
         let data = []
+        // obj is an object to hold the values
         obj = {}
+        // we will loop and get the values from the inputs
         for (var i = 0; i < inputs.length; i++) {
             obj[inputs[i]['name']] = inputs[i]['value']
         }
@@ -93,6 +101,7 @@
         body: JSON.stringify(data)
         });
         const content = await res.json();
+        // we attach the result to textarea .
         txtArea.value = content['res']
     }
 
