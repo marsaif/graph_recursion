@@ -1,20 +1,12 @@
-
-
 import itertools
 import sys
 from flask import Flask, render_template, request
-
-
-
-
-
 
 app = Flask(__name__)
 
 @app.route('/fpvecalculator')
 def fpvecalculator():
     return render_template('index.html')
-
 
 @app.route('/uolfp')
 def uolfp():
