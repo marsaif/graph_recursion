@@ -27,7 +27,7 @@ using CMD :
  * Running on http://127.0.0.1:5000/
 ```
 
-using CMD :
+using Powershell :
 
 ```
 > $env:FLASK_APP = "flask_app"
